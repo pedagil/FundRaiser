@@ -1,32 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Petros\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
+    "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Petros\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
+    "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Petros\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "projectUniqueName": "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj",
         "projectName": "FundRaiser",
-        "projectPath": "C:\\Users\\Petros\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
-        "packagesPath": "C:\\Users\\Petros\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Petros\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
+        "projectPath": "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj",
+        "packagesPath": "C:\\Users\\eleni\\.nuget\\packages\\",
+        "outputPath": "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Petros\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\eleni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "net5.0": {
@@ -83,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
