@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FundRaiser.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,13 +16,14 @@ namespace FundRaiser.Models
         public string Video { get; set; }
         public string Status { get; set; }
 
-        //public User Creator { get; set; }
-        //public List<FundProject> FundProject { get; set; }
+        //public Creator Creator { get; set; } ***** WAS NOT WORKING *****
+        //public virtual List<FundProject> FundProject { get; set; }
 
         public DateTime ExpireDate { get; set; }
         public DateTime StartDate { get; set; }
+        public virtual List<Reward> ListOfRewards { get; set; }
         //TotalAmount gia trending projects (calculated method kalytera kai vasei aytou ftiaxnw ta trending)
-        
+        public decimal TotalAmount { get; set; }
         //selected package
     }
 }

@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-FundRaiser-DC479DB3-0F62-4AF5-B42D-B22B74B57B68")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("FundRaiser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

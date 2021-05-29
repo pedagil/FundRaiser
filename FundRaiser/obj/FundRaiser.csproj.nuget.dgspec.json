@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj": {}
+    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
   },
   "projects": {
-    "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj": {
+    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj",
+        "projectUniqueName": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
         "projectName": "FundRaiser",
-        "projectPath": "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\FundRaiser.csproj",
-        "packagesPath": "C:\\Users\\eleni\\.nuget\\packages\\",
-        "outputPath": "D:\\D_ocuments\\Development\\Project Future 6\\Assignment Team 3\\Project\\FundRaiser\\obj\\",
+        "projectPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "packagesPath": "C:\\Users\\pedagil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\eleni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pedagil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -41,23 +42,25 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             }
           },
           "imports": [

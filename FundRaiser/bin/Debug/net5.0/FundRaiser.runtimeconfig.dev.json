@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\pedagil\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\pedagil\\.nuget\\packages"
+    ]
+  }
+}
