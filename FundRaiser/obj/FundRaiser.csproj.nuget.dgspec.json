@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
+    "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
+    "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "projectUniqueName": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
         "projectName": "FundRaiser",
-        "projectPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
-        "packagesPath": "C:\\Users\\pedagil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
+        "projectPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "packagesPath": "C:\\Users\\seita\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pedagil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\seita\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,6 +61,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
@@ -81,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

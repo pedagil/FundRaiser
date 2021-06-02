@@ -1,11 +1,27 @@
-﻿using System;
+﻿using FundRaiser.Models;
+using FundRaiser.Options;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FundRaiser.Interfaces
 {
-    interface IProjectService
+    public interface IProjectService 
     {
+        public Task<List<Project>> GetProjects();
+
+
+        public Task<Project> GetProjectByIdAsync(int id );
+
+        public Task<Project> CreateProjectAsync(ProjectOptions projectoptions);
+
+        public Task<Project> EditProjectAsync(int id);
+
+        public Task<Project> EditProjectByIdAsync(ProjectOptions projectoptions);
+
+        public bool ProjectExists(int id);
+
+        public Task<Project> DeleteProjectByIdAsync(int id); 
     }
 }
