@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FundRaiser.Data;
 using FundRaiser.Models;
 using FundRaiser.Interfaces;
 using FundRaiser.Options;
-using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
 namespace FundRaiser.Controllers
@@ -62,15 +56,7 @@ namespace FundRaiser.Controllers
         {
             if (ModelState.IsValid)
             {
-                string wwwRootPath = _hostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(project.ImageFile.FileName);
-                string extension = Path.GetExtension(project.ImageFile.FileName);
-                project.Photo = fileName = fileName + DateTime.Now.ToString("yymmssffff") + extension;
-                string path = Path.Combine(wwwRootPath + "/Image", fileName);
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    await project.ImageFile.CopyToAsync(fileStream);
-                }
+               
                 await _projectService.CreateProjectAsync(new ProjectOptions
                 {
                     Description = project.Description,
@@ -78,7 +64,8 @@ namespace FundRaiser.Controllers
                     Status = project.Status,
                     //TotalAmount=projectOptions.TotalAmount,
                     ExpireDate = project.ExpireDate,
-                    Photo = project.Photo,
+                    //Photo = project.Photo,
+                    ImageFile=project.ImageFile,
                     StartDate = project.StartDate,
                     Video = project.Video
                 });

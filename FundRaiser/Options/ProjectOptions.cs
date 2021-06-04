@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FundRaiser.Options
 {
@@ -12,6 +12,9 @@ namespace FundRaiser.Options
         public string Description { get; set; }
 
         public string Photo { get; set; }
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile ImageFile { get; set; }
         public string Video { get; set; }
         public string Status { get; set; }
 

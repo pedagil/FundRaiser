@@ -2,9 +2,11 @@
 using FundRaiser.Interfaces;
 using FundRaiser.Models;
 using FundRaiser.Options;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,11 +15,13 @@ namespace FundRaiser.Services
     public class ProjectService : IProjectService
     {
         private readonly ApplicationDbContext _context;
-        
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ProjectService(ApplicationDbContext context)
+
+        public ProjectService(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
 
             
         }
@@ -36,6 +40,15 @@ namespace FundRaiser.Services
 
         public async Task<Project> CreateProjectAsync(ProjectOptions projectOptions)
         {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(projectOptions.ImageFile.FileName);
+            string extension = Path.GetExtension(projectOptions.ImageFile.FileName);
+            projectOptions.Photo = fileName = fileName + DateTime.Now.ToString("yymmssffff") + extension;
+            string path = Path.Combine(wwwRootPath + "/Image", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await projectOptions.ImageFile.CopyToAsync(fileStream);
+            }
             var newProject = new Project { Description = projectOptions.Description,
                                             Title=projectOptions.Title,
                                             Status=projectOptions.Status,
