@@ -27,7 +27,7 @@ namespace FundRaiser.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=172.24.80.1,1433;Initial Catalog=FundRaiserDB; User Id=sa; Password=admin!@#123");
+            //optionsBuilder.UseSqlServer("Data Source=172.24.80.1,1433;Initial Catalog=FundRaiserDB; User Id=sa; Password=admin!@#123");
         }
     }
 }

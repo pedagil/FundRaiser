@@ -9,6 +9,8 @@ using FundRaiser.Data;
 using FundRaiser.Models;
 using FundRaiser.Interfaces;
 using FundRaiser.Options;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace FundRaiser.Controllers
 {
@@ -16,10 +18,15 @@ namespace FundRaiser.Controllers
     {
 
         private readonly IProjectService _projectService;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ProjectsController(IProjectService service)
+        public ProjectsController(IProjectService service, IWebHostEnvironment hostEnvironment)
         {
             _projectService = service;
+            
+            _hostEnvironment = hostEnvironment;
+
+
         }
 
         // GET: Projects
@@ -51,10 +58,19 @@ namespace FundRaiser.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Photo,Video,Status,ExpireDate,StartDate,TotalAmount")] Project project)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,ImageFile,Video,Status,ExpireDate,StartDate,TotalAmount")] Project project)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(project.ImageFile.FileName);
+                string extension = Path.GetExtension(project.ImageFile.FileName);
+                project.Photo = fileName = fileName + DateTime.Now.ToString("yymmssffff") + extension;
+                string path = Path.Combine(wwwRootPath + "/Image", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await project.ImageFile.CopyToAsync(fileStream);
+                }
                 await _projectService.CreateProjectAsync(new ProjectOptions
                 {
                     Description = project.Description,
@@ -167,11 +183,13 @@ namespace FundRaiser.Controllers
             await _projectService.DeleteProjectByIdAsync(id);
             return RedirectToAction(nameof(Index));
         }
+        
+       
 
-       /* private bool ProjectExists(int id)
-        {
-            return _context.Project.Any(e => e.Id == id);
-        }*/
-    }
+            /* private bool ProjectExists(int id)
+             {
+                 return _context.Project.Any(e => e.Id == id);
+             }*/
+        }
 }
 

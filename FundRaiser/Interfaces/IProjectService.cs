@@ -22,6 +22,7 @@ namespace FundRaiser.Interfaces
 
         public bool ProjectExists(int id);
 
-        public Task<Project> DeleteProjectByIdAsync(int id); 
+        public Task<Project> DeleteProjectByIdAsync(int id);
+
     }
 }
