@@ -15,10 +15,11 @@ namespace FundRaiser.Options
         [NotMapped]
         [DisplayName("Upload File")]
         public IFormFile ImageFile { get; set; }
-        public string Video { get; set; }
+        //public string Video { get; set; }
         public string Status { get; set; }
 
         public DateTime ExpireDate { get; set; }
         public DateTime StartDate { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }

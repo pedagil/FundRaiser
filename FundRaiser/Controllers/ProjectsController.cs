@@ -5,6 +5,8 @@ using FundRaiser.Models;
 using FundRaiser.Interfaces;
 using FundRaiser.Options;
 using Microsoft.AspNetCore.Hosting;
+using System;
+using System.IO;
 
 namespace FundRaiser.Controllers
 {
@@ -52,22 +54,22 @@ namespace FundRaiser.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,ImageFile,Video,Status,ExpireDate,StartDate,TotalAmount")] Project project)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,ImageFile,Video,Status,ExpireDate,StartDate,TotalAmount")] ProjectOptions projectOptions)
         {
             if (ModelState.IsValid)
             {
                
                 await _projectService.CreateProjectAsync(new ProjectOptions
                 {
-                    Description = project.Description,
-                    Title = project.Title,
-                    Status = project.Status,
-                    //TotalAmount=projectOptions.TotalAmount,
-                    ExpireDate = project.ExpireDate,
-                    //Photo = project.Photo,
-                    ImageFile=project.ImageFile,
-                    StartDate = project.StartDate,
-                    Video = project.Video
+                    Description = projectOptions.Description,
+                    Title = projectOptions.Title,
+                    Status = projectOptions.Status,
+                    TotalAmount=0,
+                    ExpireDate = projectOptions.ExpireDate,
+                    //Photo = project.Photo, exoume ImageFile
+                    ImageFile= projectOptions.ImageFile,
+                    StartDate = DateTime.Now
+                    //Video = project.Video
                 });
                     
                     
@@ -76,7 +78,7 @@ namespace FundRaiser.Controllers
                 await _context.SaveChangesAsync();*/
                 return RedirectToAction(nameof(Index));
             }
-            return View(project);
+            return View(projectOptions);
         }
 
         // GET: Projects/Edit/5
@@ -119,12 +121,12 @@ namespace FundRaiser.Controllers
                     {
                         Description = project.Description,
                         Title = project.Title,
-                        Status = project.Status,
+                        //Status = project.Status,
                         //TotalAmount=projectOptions.TotalAmount,
                         ExpireDate = project.ExpireDate,
                         Photo = project.Photo,
-                        StartDate = project.StartDate,
-                        Video = project.Video
+                        //StartDate = project.StartDate,
+                        //Video = project.Video
                     });
 
                 }

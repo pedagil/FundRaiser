@@ -52,11 +52,11 @@ namespace FundRaiser.Services
             var newProject = new Project { Description = projectOptions.Description,
                                             Title=projectOptions.Title,
                                             Status=projectOptions.Status,
-                                            //TotalAmount=projectOptions.TotalAmount,
+                                            TotalAmount=projectOptions.TotalAmount,
                                             ExpireDate=projectOptions.ExpireDate,
                                              Photo=projectOptions.Photo,
-                                             StartDate=projectOptions.StartDate,
-                                             Video=projectOptions.Video
+                                             StartDate=projectOptions.StartDate
+                                             //Video=projectOptions.Video
             };
             await _context.Project.AddAsync(newProject);
             await _context.SaveChangesAsync();
@@ -74,12 +74,12 @@ namespace FundRaiser.Services
             {
                 Description = projectOptions.Description,
                 Title = projectOptions.Title,
-                Status = projectOptions.Status,
+                //Status = projectOptions.Status,
                 //TotalAmount=projectOptions.TotalAmount,
                 ExpireDate = projectOptions.ExpireDate,
                 Photo = projectOptions.Photo,
-                StartDate = projectOptions.StartDate,
-                Video = projectOptions.Video
+               // StartDate = projectOptions.StartDate,
+                //Video = projectOptions.Video
             };
             
             _context.Project.Update(updateProject);
@@ -94,9 +94,14 @@ namespace FundRaiser.Services
         public async Task<Project> DeleteProjectByIdAsync(int id)
         {
             var projectToDelete  = await GetProjectByIdAsync(id);
-
-
+           
             
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Photo);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
+
+
             _context.Project.Remove(projectToDelete);
             await _context.SaveChangesAsync();
             return null;
