@@ -8,7 +8,7 @@ namespace FundRaiser.Models
     public class FundProject
     {
         public int Id { get; set; }
-        public Project Project { get; set; }
+        public Reward Reward { get; set; }
         public Backer Backer { get; set; }
         //rewards
         //price

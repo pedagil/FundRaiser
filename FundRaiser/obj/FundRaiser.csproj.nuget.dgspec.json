@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
+    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
+    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "projectUniqueName": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
         "projectName": "FundRaiser",
-        "projectPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
-        "packagesPath": "C:\\Users\\seita\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
+        "projectPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "packagesPath": "C:\\Users\\pedagil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\seita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pedagil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
