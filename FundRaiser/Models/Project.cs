@@ -1,8 +1,8 @@
-﻿using FundRaiser.Models;
+﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FundRaiser.Models
 {
@@ -13,6 +13,9 @@ namespace FundRaiser.Models
         public string Description { get; set; }
 
         public string Photo { get; set; }
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile ImageFile { get; set; }
         public string Video { get; set; }
         public string Status { get; set; }
 
@@ -25,5 +28,6 @@ namespace FundRaiser.Models
         //TotalAmount gia trending projects (calculated method kalytera kai vasei aytou ftiaxnw ta trending)
         public decimal TotalAmount { get; set; }
         //selected package
+
     }
 }

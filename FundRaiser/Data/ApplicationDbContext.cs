@@ -9,6 +9,7 @@ namespace FundRaiser.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        internal object _users;
 
         public DbSet<Creator> Creator { get; set; }
         public DbSet<Backer> Backer { get; set; }
@@ -19,9 +20,14 @@ namespace FundRaiser.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        public ApplicationDbContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=FundRaiserDB; User Id=sa; Password=admin!@#123");
+            //optionsBuilder.UseSqlServer("Data Source=172.24.80.1,1433;Initial Catalog=FundRaiserDB; User Id=sa; Password=admin!@#123");
         }
     }
 }
