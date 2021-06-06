@@ -26,7 +26,13 @@ namespace FundRaiser.Controllers
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexCreator()
+        {
+            var allProjects = await _projectService.GetProjects();
+            return View(allProjects);
+        }
+
+        public async Task<IActionResult> IndexBacker()
         {
             var allProjects = await _projectService.GetProjects();
             return View(allProjects);
@@ -37,11 +43,22 @@ namespace FundRaiser.Controllers
         {
 
 
-            var project = await _projectService.GetProjectByIdAsync(id.Value);
+            var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
+
+
+            return View(projectDetails);
+        }
+        public async Task<IActionResult> DetailsBacker(int? id)
+        {
+
+
+            var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
             
 
-            return View(project);
+            return View(projectDetails);
         }
+
+
 
         // GET: Projects/Create
         public IActionResult Create()
@@ -58,8 +75,8 @@ namespace FundRaiser.Controllers
         {
             if (ModelState.IsValid)
             {
-               
-                await _projectService.CreateProjectAsync(new ProjectOptions
+
+                Project temp_project = await _projectService.CreateProjectAsync(new ProjectOptions
                 {
                     Description = projectOptions.Description,
                     Title = projectOptions.Title,
@@ -72,11 +89,9 @@ namespace FundRaiser.Controllers
                     //Video = project.Video
                 });
                     
-                    
-                    
                  /*   _context.Add(project);
                 await _context.SaveChangesAsync();*/
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create), "Rewards", new { Id = temp_project.Id});
             }
             return View(projectOptions);
         }
@@ -88,7 +103,7 @@ namespace FundRaiser.Controllers
             {
                 return NotFound();
             }
-
+            //Console.WriteLine($"id in edit from project controller {id}");
             var project = await _projectService.EditProjectAsync(id.Value);
             if (project == null)
             {

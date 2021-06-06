@@ -38,6 +38,12 @@ namespace FundRaiser.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegisterDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Backer");
@@ -85,14 +91,14 @@ namespace FundRaiser.Data.Migrations
                     b.Property<int?>("BackerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<int?>("RewardId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BackerId");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("RewardId");
 
                     b.ToTable("FundProject");
                 });
@@ -143,7 +149,7 @@ namespace FundRaiser.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("RewardAmount")
@@ -153,8 +159,6 @@ namespace FundRaiser.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
 
                     b.ToTable("Reward");
                 });
@@ -374,22 +378,13 @@ namespace FundRaiser.Data.Migrations
                         .WithMany()
                         .HasForeignKey("BackerId");
 
-                    b.HasOne("FundRaiser.Models.Project", "Project")
+                    b.HasOne("FundRaiser.Models.Reward", "Reward")
                         .WithMany()
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("RewardId");
 
                     b.Navigation("Backer");
 
-                    b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("FundRaiser.Models.Reward", b =>
-                {
-                    b.HasOne("FundRaiser.Models.Project", "Project")
-                        .WithMany("ListOfRewards")
-                        .HasForeignKey("ProjectId");
-
-                    b.Navigation("Project");
+                    b.Navigation("Reward");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -441,11 +436,6 @@ namespace FundRaiser.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FundRaiser.Models.Project", b =>
-                {
-                    b.Navigation("ListOfRewards");
                 });
 #pragma warning restore 612, 618
         }

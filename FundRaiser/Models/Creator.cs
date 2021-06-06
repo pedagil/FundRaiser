@@ -16,7 +16,11 @@ namespace FundRaiser.Models
         //public string Role { get; set; }
         public string Password { get; set; }
         
+        //****************
+        //Possible change to ProjId
         public Project Project { get; set; }
+        //*********************************
+
         //public virtual List<FundProject> FundProject { get; set; }//id toy Project
 
     }

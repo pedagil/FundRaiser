@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using FundRaiser.Models;
 using FundRaiser.Interfaces;
 using FundRaiser.Options;
+using System;
 
 namespace FundRaiser.Controllers
 {
@@ -35,8 +36,9 @@ namespace FundRaiser.Controllers
         }
 
         // GET: Rewards/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            Console.WriteLine($"GET id in create from reward controller {id}");
             return View();
         }
 
@@ -45,22 +47,21 @@ namespace FundRaiser.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RewardAmount,Title,Description")] Reward reward)
+        public async Task<IActionResult> Create([Bind("Id,RewardAmount,Title,Description")] Reward reward, int? id)
         {
+            Console.WriteLine($"POST id in create from reward controller {id}");
             if (ModelState.IsValid)
             {
                 //_context.Add(reward);
                 await _rewardService.CreateRewardAsync(new RewardOptions {
                     Description = reward.Description,
                     Title = reward.Title,
-                    RewardAmount = reward.RewardAmount });
-
-
-
-
-
-
-
+                    RewardAmount = reward.RewardAmount,
+                    ProjectId = id.Value
+                    
+                    //reward.Project.Id
+                });
+                //projectId = ProjectIdFromLink
                 return RedirectToAction(nameof(Index));
             }
             return View(reward);
