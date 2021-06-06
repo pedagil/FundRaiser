@@ -26,7 +26,13 @@ namespace FundRaiser.Controllers
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexCreator()
+        {
+            var allProjects = await _projectService.GetProjects();
+            return View(allProjects);
+        }
+
+        public async Task<IActionResult> IndexBacker()
         {
             var allProjects = await _projectService.GetProjects();
             return View(allProjects);
@@ -38,10 +44,21 @@ namespace FundRaiser.Controllers
 
 
             var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
+
+
+            return View(projectDetails);
+        }
+        public async Task<IActionResult> DetailsBacker(int? id)
+        {
+
+
+            var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
             
 
             return View(projectDetails);
         }
+
+
 
         // GET: Projects/Create
         public IActionResult Create()
