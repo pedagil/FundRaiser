@@ -86,7 +86,7 @@ namespace FundRaiser.Controllers
             {
                 return NotFound();
             }
-
+            //Console.WriteLine($"id in edit from project controller {id}");
             var project = await _projectService.EditProjectAsync(id.Value);
             if (project == null)
             {
