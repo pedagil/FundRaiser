@@ -2,6 +2,7 @@
 using FundRaiser.Interfaces;
 using FundRaiser.Models;
 using FundRaiser.Options;
+using FundRaiser.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,10 +33,19 @@ namespace FundRaiser.Services
 
 
         }
-        public async Task<Project> GetProjectByIdAsync(int id)
+        public async Task<ProjectRewardsViewModel> GetProjectByIdAsync(int id)
         {
             var project = await _context.Project.SingleOrDefaultAsync(pro => pro.Id == id);
-            return project;
+
+            var rewardPackages = _context.Reward.Where(a => a.ProjectId == id);
+
+            var projectDetails = new ProjectRewardsViewModel
+            {
+                Project = project,
+                ListOfRewards = rewardPackages.ToList()
+            };
+
+            return projectDetails;
         }
 
         public async Task<Project> CreateProjectAsync(ProjectOptions projectOptions)
@@ -96,13 +106,13 @@ namespace FundRaiser.Services
             var projectToDelete  = await GetProjectByIdAsync(id);
            
             
-            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Photo);
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Project.Photo);
             if (System.IO.File.Exists(imagePath))
                 System.IO.File.Delete(imagePath);
 
 
 
-            _context.Project.Remove(projectToDelete);
+            _context.Project.Remove(projectToDelete.Project);
             await _context.SaveChangesAsync();
             return null;
         }

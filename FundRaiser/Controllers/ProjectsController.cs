@@ -37,10 +37,10 @@ namespace FundRaiser.Controllers
         {
 
 
-            var project = await _projectService.GetProjectByIdAsync(id.Value);
+            var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
             
 
-            return View(project);
+            return View(projectDetails);
         }
 
         // GET: Projects/Create

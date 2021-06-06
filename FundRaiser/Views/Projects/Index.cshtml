@@ -22,67 +22,67 @@
                 @Html.DisplayNameFor(model => model.Photo)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.Video)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.Video)
+                </th>*@
             @*<th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.ExpireDate)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>*@
             @*<th>
-                @Html.DisplayNameFor(model => model.TotalAmount)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.TotalAmount)
+                </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Photo)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Video)
-            </td>*@
-           @* <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpireDate)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
-            </td>*@
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Video)
+                    </td>*@
+                @* <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpireDate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalAmount)
+                    </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
 
-            @*<a href="../Rewards/Create" asp-action="" asp-route-id="@item.Id">Add New Reward</a>*@
+                    @*<a href="../Rewards/Create" asp-action="" asp-route-id="@item.Id">Add New Reward</a>*@
 
-            <a asp-controller="Rewards" asp-action="Create" asp-route-id="@item.Id">Add New Reward</a>
+                    <a asp-controller="Rewards" asp-action="Create" asp-route-id="@item.Id">Add New Reward</a>
 
-            <!--<a asp-action="../Rewards/Create" asp-route-id="@item.Id">Add New Reward</a> -->
-            <!-- Rewards/Create
-
-                function redirectOnClick(){
-    document.location ='ControllerName/ActionName';
-    }-->
-        </td>
-        </tr>
-}
+                    <!--<a asp-action="../Rewards/Create" asp-route-id="@item.Id">Add New Reward</a> -->
+                    <!-- Rewards/Create
+                                function redirectOnClick(){
+                    document.location ='ControllerName/ActionName';
+                    }-->
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
