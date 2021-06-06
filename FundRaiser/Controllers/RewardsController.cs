@@ -55,12 +55,6 @@ namespace FundRaiser.Controllers
                     Title = reward.Title,
                     RewardAmount = reward.RewardAmount });
 
-
-
-
-
-
-
                 return RedirectToAction(nameof(Index));
             }
             return View(reward);

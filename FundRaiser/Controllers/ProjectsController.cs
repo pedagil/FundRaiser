@@ -58,8 +58,8 @@ namespace FundRaiser.Controllers
         {
             if (ModelState.IsValid)
             {
-               
-                await _projectService.CreateProjectAsync(new ProjectOptions
+
+                Project temp_project = await _projectService.CreateProjectAsync(new ProjectOptions
                 {
                     Description = projectOptions.Description,
                     Title = projectOptions.Title,
@@ -72,11 +72,9 @@ namespace FundRaiser.Controllers
                     //Video = project.Video
                 });
                     
-                    
-                    
                  /*   _context.Add(project);
                 await _context.SaveChangesAsync();*/
-                return RedirectToAction(nameof(Create), "Rewards");
+                return RedirectToAction(nameof(Create), "Rewards", new { Id = temp_project.Id});
             }
             return View(projectOptions);
         }
