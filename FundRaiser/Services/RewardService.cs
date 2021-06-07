@@ -83,5 +83,16 @@ namespace FundRaiser.Services
             await _context.SaveChangesAsync();
             return null;
         }
+        public async Task<Reward> UpdateRewardStatusByIdAsync(int id)
+        {
+            var updateReward = new Reward
+            {
+                Id = id,
+                RewardStatus = "purchased"
+            };
+            _context.Reward.Update(updateReward);
+            await _context.SaveChangesAsync();
+            return updateReward;
+        }
     }
 }

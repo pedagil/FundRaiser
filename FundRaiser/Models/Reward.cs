@@ -15,6 +15,7 @@ namespace FundRaiser.Models
         //public Project Project { get; set; }
         
         public int ProjectId { get; set; }
+        public string RewardStatus { get; set; }
 
         //[ForeignKey("ProjectId")]
         //public virtual Project Project { get; set; }

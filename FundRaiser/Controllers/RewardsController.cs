@@ -152,12 +152,18 @@ namespace FundRaiser.Controllers
                 await _rewardService.DeleteRewardByIdAsync(id);
                 return RedirectToAction(nameof(Index));
             }
-
-            /* private bool RewardExists(int id)
+             public async Task<IActionResult> UpdateRewardStatus(int? id)
              {
-                 return _context.Reward.Any(e => e.Id == id);
-             }*/
-        }
+            var reward = await _rewardService.UpdateRewardStatusByIdAsync(id.Value);
+            //If you do return View("~/Views/Wherever/SomeDir/MyView.aspx") You can return any View you'd like.
+            return View("../Views/Projects/Details");
+             }
+
+        /* private bool RewardExists(int id)
+         {
+             return _context.Reward.Any(e => e.Id == id);
+         }*/
+    }
     
 }
 
