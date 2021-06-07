@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FundRaiser.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210606102628_ProjectID")]
-    partial class ProjectID
+    [Migration("20210607154924_MigrationTest")]
+    partial class MigrationTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

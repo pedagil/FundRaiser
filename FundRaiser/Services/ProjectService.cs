@@ -59,7 +59,7 @@ namespace FundRaiser.Services
             {
                 await projectOptions.ImageFile.CopyToAsync(fileStream);
             }
-            var newProject = new Project { Description = projectOptions.Description,
+            var newProject = new Project {                Description = projectOptions.Description,
                                             Title=projectOptions.Title,
                                             Status=projectOptions.Status,
                                             TotalAmount=projectOptions.TotalAmount,
@@ -82,6 +82,7 @@ namespace FundRaiser.Services
             {
             var updateProject = new Project
             {
+                Id=projectOptions.Id,
                 Description = projectOptions.Description,
                 Title = projectOptions.Title,
                 //Status = projectOptions.Status,
@@ -103,13 +104,18 @@ namespace FundRaiser.Services
 
         public async Task<Project> DeleteProjectByIdAsync(int id)
         {
-            var projectToDelete  = await GetProjectByIdAsync(id);
-           
+            //_context.Reward.RemoveAll(p => p.ProjectId == id);
+            //_context.Reward.RemoveAll(_context.Reward.Where(p => p.ProjectId == id).ToList() );
+            List<Reward> Rewards = _context.Reward.Where(p => p.ProjectId == id).ToList();
+            _context.Reward.RemoveRange(Rewards);
+            /*Rewards.ForEach(p => _context.Reward.Remove(p.ProjectId));
+            _context.Reward.Except();*/
+            var projectToDelete = await GetProjectByIdAsync(id);
+            
             
             var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Project.Photo);
             if (System.IO.File.Exists(imagePath))
                 System.IO.File.Delete(imagePath);
-
 
 
             _context.Project.Remove(projectToDelete.Project);
