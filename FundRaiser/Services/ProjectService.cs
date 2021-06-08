@@ -39,7 +39,7 @@ namespace FundRaiser.Services
         {
             var project = await _context.Project.SingleOrDefaultAsync(pro => pro.Id == id);
 
-            var rewardPackages = _context.Reward.Where(a => a.Project.Id == id);
+            var rewardPackages = _context.Reward.Where(a => a.Project.Id == id && a.RewardStatus==null);
 
             var projectDetails = new ProjectRewardsViewModel
             {

@@ -78,7 +78,8 @@
                     <button class="btn-primary btn" type="button">
                         <a asp-controller="Rewards"
                            asp-action="UpdateRewardStatus"
-                           asp-route-id="@item.Id">
+                           asp-route-id="@item.Id"
+                           asp-route-id2="@Model.Project.Id">
                             Fund
                         </a>
                     </button>
@@ -87,6 +88,7 @@
         </ul>
     }
 </div>
+
 
 
 <div>

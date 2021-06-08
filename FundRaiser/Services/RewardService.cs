@@ -82,25 +82,34 @@ namespace FundRaiser.Services
             await _context.SaveChangesAsync();
             return null;
         }
-        public async Task<Reward> UpdateRewardStatusByIdAsync(RewardOptions rewardOptions )
+        public async Task<Reward> UpdateRewardStatusByIdAsync( int id,int id2  )
         {
-           // Reward reward = _context.Reward.Find(id);
+            Reward reward =  _context.Reward.Find(id);
+            Console.WriteLine($"********************** { id}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Description}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Id}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardAmount}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Title}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardStatus}");
+
+            Project project =  _context.Project.Find(id2);
+
+            //Console.WriteLine($"IDDDDDDDDD{ project}");
+            List<Reward> rewards =
+           _context.Reward.Where(r => r.Id == id).ToList();
+            rewards.ForEach(r => _context.Reward.Remove(r));
 
             var updateReward = new Reward
             {
-                Description = rewardOptions.Description,
-                Title = rewardOptions.Title,
-                RewardAmount = rewardOptions.RewardAmount,
-                Id = rewardOptions.ProjectId,
-                RewardStatus = "purchased"
-            }; 
-           /* var updateReward = new Reward
-            {
-                Id = id,
-                RewardStatus = "purchased"
-            };*/
-            Console.WriteLine($"********************** { updateReward}");
-            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { rewardOptions}");
+                Description = reward.Description,
+                Title = reward.Title,
+                RewardAmount = reward.RewardAmount,
+               // Id = id2,
+                RewardStatus = "purchased",
+                Project = project
+            };
+            Console.WriteLine($"PROJECTTTT { project.Id}");
+            //Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { rewardOptions.RewardAmount}");
             _context.Reward.Update(updateReward);
             await _context.SaveChangesAsync();
             return updateReward;

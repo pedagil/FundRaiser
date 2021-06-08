@@ -152,18 +152,24 @@ namespace FundRaiser.Controllers
             await _rewardService.DeleteRewardByIdAsync(id);
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> UpdateRewardStatus( Reward reward)
+        
+        public async Task<IActionResult> UpdateRewardStatus(int id, int id2)
         {
-            
-            var rewardupdate = await _rewardService.UpdateRewardStatusByIdAsync(new RewardOptions
+            Console.WriteLine($"######TITLEEEEEE { id2}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { id}");
+
+            var rewardupdate = await _rewardService.UpdateRewardStatusByIdAsync(id,id2);
+            /*new RewardOptions
             {
                 Description = reward.Description,
                 Title = reward.Title,
                 RewardAmount = reward.RewardAmount,
                 ProjectId = reward.Id
-            });
+            }*/
 
-            return View("../Projects/IndexBacker");
+
+
+            return View("../Home/Index");
         }
             //If you do return View("~/Views/Wherever/SomeDir/MyView.aspx") You can return any View you'd like.
             
