@@ -12,9 +12,9 @@ namespace FundRaiser.Models
         public decimal RewardAmount { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        //public Project Project { get; set; }
+        public Project Project { get; set; }
         
-        public int ProjectId { get; set; }
+       // public int ProjectIdentity { get; set; }
         public string RewardStatus { get; set; }
 
         //[ForeignKey("ProjectId")]

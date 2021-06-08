@@ -34,15 +34,14 @@ namespace FundRaiser.Services
 
         public async Task<Reward> CreateRewardAsync(RewardOptions rewardOptions)
         {
-            Console.WriteLine($"FROM REWARD SERVICE id in create from reward controller {rewardOptions.ProjectIdentity}");
+            Console.WriteLine($"FROM REWARD SERVICE id in create from reward controller {rewardOptions.ProjectId}");
+            Project project = _context.Project.Find(rewardOptions.ProjectId);
             var newReward = new Reward
             {
                 Description = rewardOptions.Description,
                 Title = rewardOptions.Title,
                 RewardAmount = rewardOptions.RewardAmount,
-                //ProjectId = rewardOptions.ProjectId
-                //Project = rewardOptions.ProjectId
-                ProjectId = rewardOptions.ProjectIdentity
+                Project = project
             };
             await _context.Reward.AddAsync(newReward);
             await _context.SaveChangesAsync();
@@ -83,13 +82,25 @@ namespace FundRaiser.Services
             await _context.SaveChangesAsync();
             return null;
         }
-        public async Task<Reward> UpdateRewardStatusByIdAsync(int id)
+        public async Task<Reward> UpdateRewardStatusByIdAsync(RewardOptions rewardOptions )
         {
+           // Reward reward = _context.Reward.Find(id);
+
             var updateReward = new Reward
+            {
+                Description = rewardOptions.Description,
+                Title = rewardOptions.Title,
+                RewardAmount = rewardOptions.RewardAmount,
+                Id = rewardOptions.ProjectId,
+                RewardStatus = "purchased"
+            }; 
+           /* var updateReward = new Reward
             {
                 Id = id,
                 RewardStatus = "purchased"
-            };
+            };*/
+            Console.WriteLine($"********************** { updateReward}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { rewardOptions}");
             _context.Reward.Update(updateReward);
             await _context.SaveChangesAsync();
             return updateReward;

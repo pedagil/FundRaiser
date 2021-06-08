@@ -5,6 +5,7 @@ using FundRaiser.Options;
 using FundRaiser.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,13 +18,14 @@ namespace FundRaiser.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly ILogger<ProjectService> _logger;
 
 
-        public ProjectService(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
+        public ProjectService(ApplicationDbContext context, IWebHostEnvironment hostEnvironment,ILogger<ProjectService> logger)
         {
             _context = context;
             _hostEnvironment = hostEnvironment;
-
+            _logger = logger;
             
         }
         public async Task<List<Project>> GetProjects()
@@ -37,7 +39,7 @@ namespace FundRaiser.Services
         {
             var project = await _context.Project.SingleOrDefaultAsync(pro => pro.Id == id);
 
-            var rewardPackages = _context.Reward.Where(a => a.ProjectId == id);
+            var rewardPackages = _context.Reward.Where(a => a.Project.Id == id);
 
             var projectDetails = new ProjectRewardsViewModel
             {
@@ -59,6 +61,16 @@ namespace FundRaiser.Services
             {
                 await projectOptions.ImageFile.CopyToAsync(fileStream);
             }
+
+
+            if (string.IsNullOrWhiteSpace(projectOptions.Title))
+            {
+                _logger.LogError("Please give a title to your Project");
+                return null;
+            }
+
+
+
             var newProject = new Project {                Description = projectOptions.Description,
                                             Title=projectOptions.Title,
                                             Status=projectOptions.Status,
@@ -106,8 +118,10 @@ namespace FundRaiser.Services
         {
             //_context.Reward.RemoveAll(p => p.ProjectId == id);
             //_context.Reward.RemoveAll(_context.Reward.Where(p => p.ProjectId == id).ToList() );
-            List<Reward> Rewards = _context.Reward.Where(p => p.ProjectId == id).ToList();
-            _context.Reward.RemoveRange(Rewards);
+            List<Reward> rewards =
+            _context.Reward.Where(r => r.Project.Id == id).ToList();
+            rewards.ForEach(r => _context.Reward.Remove(r));
+            _context.SaveChanges();
             /*Rewards.ForEach(p => _context.Reward.Remove(p.ProjectId));
             _context.Reward.Except();*/
             var projectToDelete = await GetProjectByIdAsync(id);

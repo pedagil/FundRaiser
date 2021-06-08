@@ -22,7 +22,7 @@ namespace FundRaiser.Interfaces
 
         public Task<Reward> DeleteRewardByIdAsync(int id);
         
-        public Task<Reward> UpdateRewardStatusByIdAsync(int id);
+        public Task<Reward> UpdateRewardStatusByIdAsync(RewardOptions rewardoptions);
 
 
     }
