@@ -134,6 +134,7 @@ namespace FundRaiser.Controllers
                     await _projectService.EditProjectByIdAsync(
                      new ProjectOptions
                     {
+                         Id=project.Id,
                         Description = project.Description,
                         Title = project.Title,
                         //Status = project.Status,
@@ -156,7 +157,7 @@ namespace FundRaiser.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexCreator));
             }
             return View(project);
         }
@@ -185,7 +186,7 @@ namespace FundRaiser.Controllers
         {
             
             await _projectService.DeleteProjectByIdAsync(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexCreator));
         }
         
        

@@ -2,22 +2,22 @@
 
 namespace FundRaiser.Data.Migrations
 {
-    public partial class ProjectID : Migration
+    public partial class NewMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "ProjId",
+            migrationBuilder.AddColumn<string>(
+                name: "RewardStatus",
                 table: "Reward",
-                newName: "ProjectId");
+                type: "nvarchar(max)",
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "ProjectId",
-                table: "Reward",
-                newName: "ProjId");
+            migrationBuilder.DropColumn(
+                name: "RewardStatus",
+                table: "Reward");
         }
     }
 }
