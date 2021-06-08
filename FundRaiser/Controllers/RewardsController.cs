@@ -57,7 +57,7 @@ namespace FundRaiser.Controllers
                     Description = reward.Description,
                     Title = reward.Title,
                     RewardAmount = reward.RewardAmount,
-                    ProjectId = id.Value
+                    ProjectIdentity = id.Value
                     
                     //reward.Project.Id
                 });

@@ -34,7 +34,7 @@ namespace FundRaiser.Services
 
         public async Task<Reward> CreateRewardAsync(RewardOptions rewardOptions)
         {
-            Console.WriteLine($"FROM REWARD SERVICE id in create from reward controller {rewardOptions.ProjectId}");
+            Console.WriteLine($"FROM REWARD SERVICE id in create from reward controller {rewardOptions.ProjectIdentity}");
             var newReward = new Reward
             {
                 Description = rewardOptions.Description,
@@ -42,7 +42,7 @@ namespace FundRaiser.Services
                 RewardAmount = rewardOptions.RewardAmount,
                 //ProjectId = rewardOptions.ProjectId
                 //Project = rewardOptions.ProjectId
-                ProjectId = rewardOptions.ProjectId
+                ProjectId = rewardOptions.ProjectIdentity
             };
             await _context.Reward.AddAsync(newReward);
             await _context.SaveChangesAsync();
