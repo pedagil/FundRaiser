@@ -403,7 +403,6 @@ C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\P
 C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\Delete.cshtml.g.cs
 C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\Details.cshtml.g.cs
 C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\Edit.cshtml.g.cs
-C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\Index.cshtml.g.cs
 C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Rewards\Create.cshtml.g.cs
 C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Rewards\Delete.cshtml.g.cs
 C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Rewards\Details.cshtml.g.cs
@@ -510,3 +509,6 @@ C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\IndexBacker.cshtml.g.cs
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\DetailsBacker.cshtml.g.cs
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\Details.cshtml.g.cs
+C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\DetailsBacker.cshtml.g.cs
+C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\IndexBacker.cshtml.g.cs
+C:\Users\seita\source\repos\FundRaiser\FundRaiser\obj\Debug\net5.0\Razor\Views\Projects\IndexCreator.cshtml.g.cs
