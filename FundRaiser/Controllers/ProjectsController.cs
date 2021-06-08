@@ -7,6 +7,7 @@ using FundRaiser.Options;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace FundRaiser.Controllers
 {
@@ -164,6 +165,7 @@ namespace FundRaiser.Controllers
         // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            
             if (id == null)
             {
                 return NotFound();

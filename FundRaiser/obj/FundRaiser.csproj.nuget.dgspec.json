@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
+    "C:\\Users\\eleni\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
+    "C:\\Users\\eleni\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "projectUniqueName": "C:\\Users\\eleni\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
         "projectName": "FundRaiser",
-        "projectPath": "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
-        "packagesPath": "C:\\Users\\pedagil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\obj\\",
+        "projectPath": "C:\\Users\\eleni\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "packagesPath": "C:\\Users\\eleni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eleni\\Source\\Repos\\FundRaiser\\FundRaiser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pedagil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\eleni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

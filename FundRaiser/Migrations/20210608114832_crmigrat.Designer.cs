@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FundRaiser.Data.Migrations
+namespace FundRaiser.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210606102628_ProjectID")]
-    partial class ProjectID
+    [Migration("20210608114832_crmigrat")]
+    partial class crmigrat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

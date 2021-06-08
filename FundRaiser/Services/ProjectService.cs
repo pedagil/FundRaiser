@@ -104,8 +104,11 @@ namespace FundRaiser.Services
         public async Task<Project> DeleteProjectByIdAsync(int id)
         {
             var projectToDelete  = await GetProjectByIdAsync(id);
-           
-            
+
+            List<Reward> rewards =
+    _context.Reward.Where(r => r.ProjectId == id).ToList();
+            rewards.ForEach(r => _context.Reward.Remove(r));
+            _context.SaveChanges();
             var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Project.Photo);
             if (System.IO.File.Exists(imagePath))
                 System.IO.File.Delete(imagePath);

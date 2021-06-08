@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FundRaiser.Data.Migrations
+namespace FundRaiser.Migrations
 {
-    public partial class FundRaiserMigration : Migration
+    public partial class crmigrat : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
