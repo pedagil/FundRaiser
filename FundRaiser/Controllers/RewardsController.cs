@@ -58,7 +58,7 @@ namespace FundRaiser.Controllers
                     Title = reward.Title,
                     RewardAmount = reward.RewardAmount,
                     ProjectId = id.Value
-                    
+
                     //reward.Project.Id
                 });
                 //projectId = ProjectIdFromLink
@@ -123,41 +123,63 @@ namespace FundRaiser.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-                return View(reward);
+            return View(reward);
+
+        }
+        // GET: Rewards/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var reward = await _rewardService.GetRewardByIdAsync(id.Value);
+
+            if (reward == null)
+            {
+                return NotFound();
+            }
+
+            return View(reward);
+        }
+
+        // POST: Rewards/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _rewardService.DeleteRewardByIdAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+        
+        public async Task<IActionResult> UpdateRewardStatus(int id, int id2)
+        {
+            Console.WriteLine($"######TITLEEEEEE { id2}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { id}");
+
+            var rewardupdate = await _rewardService.UpdateRewardStatusByIdAsync(id,id2);
+            /*new RewardOptions
+            {
+                Description = reward.Description,
+                Title = reward.Title,
+                RewardAmount = reward.RewardAmount,
+                ProjectId = reward.Id
+            }*/
+
+
+
+            return View("../Home/Index");
+        }
+            //If you do return View("~/Views/Wherever/SomeDir/MyView.aspx") You can return any View you'd like.
             
-        }
-            // GET: Rewards/Delete/5
-            public async Task<IActionResult> Delete(int? id)
-            {
-                if (id == null)
-                {
-                    return NotFound();
-                }
+             
 
-                var reward = await _rewardService.GetRewardByIdAsync(id.Value);
-
-                if (reward == null)
-                {
-                    return NotFound();
-                }
-
-                return View(reward);
-            }
-
-            // POST: Rewards/Delete/5
-            [HttpPost, ActionName("Delete")]
-            [ValidateAntiForgeryToken]
-            public async Task<IActionResult> DeleteConfirmed(int id)
-            {
-                await _rewardService.DeleteRewardByIdAsync(id);
-                return RedirectToAction(nameof(Index));
-            }
-
-            /* private bool RewardExists(int id)
-             {
-                 return _context.Reward.Any(e => e.Id == id);
-             }*/
-        }
+        /* private bool RewardExists(int id)
+         {
+             return _context.Reward.Any(e => e.Id == id);
+         }*/
+    }
     
 }
 

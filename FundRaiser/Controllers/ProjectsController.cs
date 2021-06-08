@@ -6,7 +6,6 @@ using FundRaiser.Interfaces;
 using FundRaiser.Options;
 using Microsoft.AspNetCore.Hosting;
 using System;
-using System.IO;
 
 namespace FundRaiser.Controllers
 {
@@ -15,6 +14,8 @@ namespace FundRaiser.Controllers
 
         private readonly IProjectService _projectService;
         private readonly IWebHostEnvironment _hostEnvironment;
+
+
 
         public ProjectsController(IProjectService service, IWebHostEnvironment hostEnvironment)
         {
@@ -73,26 +74,28 @@ namespace FundRaiser.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,ImageFile,Video,Status,ExpireDate,StartDate,TotalAmount")] ProjectOptions projectOptions)
         {
-            if (ModelState.IsValid)
-            {
-
-                Project temp_project = await _projectService.CreateProjectAsync(new ProjectOptions
+            
+                if (ModelState.IsValid)
                 {
-                    Description = projectOptions.Description,
-                    Title = projectOptions.Title,
-                    Status = projectOptions.Status,
-                    TotalAmount=0,
-                    ExpireDate = projectOptions.ExpireDate,
-                    //Photo = project.Photo, exoume ImageFile
-                    ImageFile= projectOptions.ImageFile,
-                    StartDate = DateTime.Now
-                    //Video = project.Video
-                });
-                    
-                 /*   _context.Add(project);
-                await _context.SaveChangesAsync();*/
-                return RedirectToAction(nameof(Create), "Rewards", new { Id = temp_project.Id});
-            }
+
+                    Project temp_project = await _projectService.CreateProjectAsync(new ProjectOptions
+                    {
+                        Description = projectOptions.Description,
+                        Title = projectOptions.Title,
+                        Status = projectOptions.Status,
+                        TotalAmount = 0,
+                        ExpireDate = projectOptions.ExpireDate,
+                        //Photo = project.Photo, exoume ImageFile
+                        ImageFile = projectOptions.ImageFile,
+                        StartDate = DateTime.Now
+                        //Video = project.Video
+                    });
+
+                    /*   _context.Add(project);
+                   await _context.SaveChangesAsync();*/
+                    return RedirectToAction(nameof(Create), "Rewards", new { Id = temp_project.Id });
+                }
+          
             return View(projectOptions);
         }
 
@@ -134,6 +137,7 @@ namespace FundRaiser.Controllers
                     await _projectService.EditProjectByIdAsync(
                      new ProjectOptions
                     {
+                         Id=project.Id,
                         Description = project.Description,
                         Title = project.Title,
                         //Status = project.Status,
@@ -156,7 +160,7 @@ namespace FundRaiser.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexCreator));
             }
             return View(project);
         }
@@ -185,7 +189,7 @@ namespace FundRaiser.Controllers
         {
             
             await _projectService.DeleteProjectByIdAsync(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexCreator));
         }
         
        

@@ -4,14 +4,16 @@ using FundRaiser.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FundRaiser.Data.Migrations
+namespace FundRaiser.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210608175845_Migration1")]
+    partial class Migration1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,16 +151,21 @@ namespace FundRaiser.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProjectId")
+                    b.Property<int?>("ProjectId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("RewardAmount")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("RewardStatus")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
 
                     b.ToTable("Reward");
                 });
@@ -387,6 +394,15 @@ namespace FundRaiser.Data.Migrations
                     b.Navigation("Reward");
                 });
 
+            modelBuilder.Entity("FundRaiser.Models.Reward", b =>
+                {
+                    b.HasOne("FundRaiser.Models.Project", "Project")
+                        .WithMany("ListOfRewards")
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("Project");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -436,6 +452,11 @@ namespace FundRaiser.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FundRaiser.Models.Project", b =>
+                {
+                    b.Navigation("ListOfRewards");
                 });
 #pragma warning restore 612, 618
         }

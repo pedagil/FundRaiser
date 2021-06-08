@@ -74,15 +74,24 @@
             <li>
                 @Html.DisplayFor(modelItem => item.Title)
                 (@Html.DisplayFor(modelItem => item.RewardAmount)$)
-                <span><button class="btn-primary btn" type="button">Fund</button></span>
+                <span>
+                    <button class="btn-primary btn" type="button">
+                        <a asp-controller="Rewards"
+                           asp-action="UpdateRewardStatus"
+                           asp-route-id="@item.Id"
+                           asp-route-id2="@Model.Project.Id">
+                            Fund
+                        </a>
+                    </button>
+                </span>
             </li>
-
         </ul>
     }
 </div>
 
 
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Project.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="IndexBacker"asp-controller="Projects">Back to List</a>
 </div>
