@@ -8,6 +8,10 @@ namespace FundRaiser.ViewModels
 {
     public class ProjectRewardsViewModel
     {
+     
+        public decimal TotalFundAmount { get; set; }
+
+
         public Project Project { get; set; }
         public List<Reward> ListOfRewards { get; set; }
     }

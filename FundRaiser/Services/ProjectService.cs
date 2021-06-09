@@ -38,15 +38,18 @@ namespace FundRaiser.Services
         public async Task<ProjectRewardsViewModel> GetProjectByIdAsync(int id)
         {
             var project = await _context.Project.SingleOrDefaultAsync(pro => pro.Id == id);
-
-            var rewardPackages = _context.Reward.Where(a => a.Project.Id == id && a.RewardStatus==null);
-
+            var rewardPackages = _context.Reward.Where(a => a.Project.Id == id && a.RewardStatus == null);
+            var TotalAmount = _context.Reward
+                .Where(a => a.Project.Id == id && a.RewardStatus != null)
+                .Select(reward => reward.RewardAmount)
+                .Sum();
+            Console.WriteLine($"TotalAmountttttttttttttttttt: {TotalAmount}");
             var projectDetails = new ProjectRewardsViewModel
             {
                 Project = project,
-                ListOfRewards = rewardPackages.ToList()
+                ListOfRewards = rewardPackages.ToList(),
+                TotalFundAmount = TotalAmount
             };
-
             return projectDetails;
         }
 
