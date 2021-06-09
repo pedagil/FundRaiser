@@ -10,5 +10,7 @@ namespace FundRaiser.ViewModels
     {
         public Project Project { get; set; }
         public List<Reward> ListOfRewards { get; set; }
+
+        public decimal TotalFundAmount { get; set; }
     }
 }

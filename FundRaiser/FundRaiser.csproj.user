@@ -13,5 +13,6 @@
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <_SelectedScaffolderID>MvcControllerWithContextScaffolder</_SelectedScaffolderID>
     <_SelectedScaffolderCategoryPath>root/Common/MVC/Controller</_SelectedScaffolderCategoryPath>
+    <NameOfLastUsedPublishProfile>FundRaiserPF6 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
