@@ -15,15 +15,10 @@ namespace FundRaiser.Controllers
         private readonly IProjectService _projectService;
         private readonly IWebHostEnvironment _hostEnvironment;
 
-
-
         public ProjectsController(IProjectService service, IWebHostEnvironment hostEnvironment)
         {
             _projectService = service;
-            
             _hostEnvironment = hostEnvironment;
-
-
         }
 
         // GET: Projects
@@ -130,6 +125,9 @@ namespace FundRaiser.Controllers
 
             if (ModelState.IsValid)
             {
+
+
+
                 try
                 {
                     /* _context.Update(project);

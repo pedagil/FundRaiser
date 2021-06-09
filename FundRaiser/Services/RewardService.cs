@@ -85,12 +85,12 @@ namespace FundRaiser.Services
         public async Task<Reward> UpdateRewardStatusByIdAsync( int id,int id2  )
         {
             Reward reward =  _context.Reward.Find(id);
-            Console.WriteLine($"********************** { id}");
+            /*Console.WriteLine($"********************** { id}");
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Description}");
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Id}");
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardAmount}");
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Title}");
-            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardStatus}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardStatus}");*/
             
             Project project =  _context.Project.Find(id2);
 
@@ -108,7 +108,7 @@ namespace FundRaiser.Services
                 RewardStatus = "purchased",
                 Project = project
             };
-            Console.WriteLine($"PROJECTTTT { project.Id}");
+            //Console.WriteLine($"PROJECTTTT { project.Id}");
             //Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { rewardOptions.RewardAmount}");
             _context.Reward.Update(updateReward);
             await _context.SaveChangesAsync();

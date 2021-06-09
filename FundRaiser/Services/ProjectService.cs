@@ -43,7 +43,7 @@ namespace FundRaiser.Services
                 .Where(a => a.Project.Id == id && a.RewardStatus != null)
                 .Select(reward => reward.RewardAmount)
                 .Sum();
-            Console.WriteLine($"TotalAmountttttttttttttttttt: {TotalAmount}");
+            //Console.WriteLine($"TotalAmountttttttttttttttttt: {TotalAmount}");
             var projectDetails = new ProjectRewardsViewModel
             {
                 Project = project,

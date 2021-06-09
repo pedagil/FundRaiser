@@ -38,7 +38,7 @@ namespace FundRaiser.Controllers
         // GET: Rewards/Create
         public IActionResult Create(int? id)
         {
-            Console.WriteLine($"GET id in create from reward controller {id}");
+            //Console.WriteLine($"GET id in create from reward controller {id}");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace FundRaiser.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,RewardAmount,Title,Description")] Reward reward, int? id)
         {
-            Console.WriteLine($"POST id in create from reward controller {id}");
+            //Console.WriteLine($"POST id in create from reward controller {id}");
             if (ModelState.IsValid)
             {
                 //_context.Add(reward);
@@ -155,8 +155,8 @@ namespace FundRaiser.Controllers
         
         public async Task<IActionResult> UpdateRewardStatus(int id, int id2)
         {
-            Console.WriteLine($"######TITLEEEEEE { id2}");
-            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { id}");
+           //Console.WriteLine($"######TITLEEEEEE { id2}");
+            //Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { id}");
 
             var rewardupdate = await _rewardService.UpdateRewardStatusByIdAsync(id,id2);
             /*new RewardOptions
