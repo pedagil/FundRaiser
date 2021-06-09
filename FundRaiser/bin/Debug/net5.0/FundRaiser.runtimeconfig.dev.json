@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\pedagil\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\pedagil\\.nuget\\packages"
+      "C:\\Users\\seita\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\seita\\.nuget\\packages"
     ]
   }
 }
