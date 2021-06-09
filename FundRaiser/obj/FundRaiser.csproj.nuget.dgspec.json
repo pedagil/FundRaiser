@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
+    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
+    "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "projectUniqueName": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
         "projectName": "FundRaiser",
-        "projectPath": "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+        "projectPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
         "packagesPath": "C:\\Users\\pedagil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedagil\\Source\\Repos\\FundRaiser\\FundRaiser\\obj\\",
+        "outputPath": "C:\\Users\\pedagil\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pedagil\\AppData\\Roaming\\NuGet\\NuGet.Config",
