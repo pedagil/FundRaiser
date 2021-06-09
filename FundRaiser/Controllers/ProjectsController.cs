@@ -181,7 +181,7 @@ namespace FundRaiser.Controllers
 
             return View(project);
         }
-
+        
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

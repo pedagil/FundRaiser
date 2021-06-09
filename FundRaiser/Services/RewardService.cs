@@ -91,7 +91,7 @@ namespace FundRaiser.Services
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardAmount}");
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Title}");
             Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardStatus}");
-
+            
             Project project =  _context.Project.Find(id2);
 
             //Console.WriteLine($"IDDDDDDDDD{ project}");
