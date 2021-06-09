@@ -7499,11 +7499,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+      "projectUniqueName": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
       "projectName": "FundRaiser",
-      "projectPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+      "projectPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
       "packagesPath": "C:\\Users\\seita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\obj\\",
+      "outputPath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\seita\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FundRaiser.Data.Migrations
+namespace FundRaiser.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210530083639_FundRaiserMigration")]
-    partial class FundRaiserMigration
+    [Migration("20210608175845_Migration1")]
+    partial class Migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,12 @@ namespace FundRaiser.Data.Migrations
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegisterDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -87,14 +93,14 @@ namespace FundRaiser.Data.Migrations
                     b.Property<int?>("BackerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<int?>("RewardId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BackerId");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("RewardId");
 
                     b.ToTable("FundProject");
                 });
@@ -150,6 +156,9 @@ namespace FundRaiser.Data.Migrations
 
                     b.Property<decimal>("RewardAmount")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("RewardStatus")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -376,13 +385,13 @@ namespace FundRaiser.Data.Migrations
                         .WithMany()
                         .HasForeignKey("BackerId");
 
-                    b.HasOne("FundRaiser.Models.Project", "Project")
+                    b.HasOne("FundRaiser.Models.Reward", "Reward")
                         .WithMany()
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("RewardId");
 
                     b.Navigation("Backer");
 
-                    b.Navigation("Project");
+                    b.Navigation("Reward");
                 });
 
             modelBuilder.Entity("FundRaiser.Models.Reward", b =>

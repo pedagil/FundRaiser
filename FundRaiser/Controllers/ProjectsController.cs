@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FundRaiser.Data;
 using FundRaiser.Models;
 using FundRaiser.Interfaces;
 using FundRaiser.Options;
+using Microsoft.AspNetCore.Hosting;
+using System;
 
 namespace FundRaiser.Controllers
 {
@@ -16,14 +13,27 @@ namespace FundRaiser.Controllers
     {
 
         private readonly IProjectService _projectService;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ProjectsController(IProjectService service)
+
+
+        public ProjectsController(IProjectService service, IWebHostEnvironment hostEnvironment)
         {
             _projectService = service;
+            
+            _hostEnvironment = hostEnvironment;
+
+
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexCreator()
+        {
+            var allProjects = await _projectService.GetProjects();
+            return View(allProjects);
+        }
+
+        public async Task<IActionResult> IndexBacker()
         {
             var allProjects = await _projectService.GetProjects();
             return View(allProjects);
@@ -34,11 +44,22 @@ namespace FundRaiser.Controllers
         {
 
 
-            var project = await _projectService.GetProjectByIdAsync(id.Value);
+            var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
+
+
+            return View(projectDetails);
+        }
+        public async Task<IActionResult> DetailsBacker(int? id)
+        {
+
+
+            var projectDetails = await _projectService.GetProjectByIdAsync(id.Value);
             
 
-            return View(project);
+            return View(projectDetails);
         }
+
+
 
         // GET: Projects/Create
         public IActionResult Create()
@@ -51,29 +72,31 @@ namespace FundRaiser.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Photo,Video,Status,ExpireDate,StartDate,TotalAmount")] Project project)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,ImageFile,Video,Status,ExpireDate,StartDate,TotalAmount")] ProjectOptions projectOptions)
         {
-            if (ModelState.IsValid)
-            {
-                await _projectService.CreateProjectAsync(new ProjectOptions
+            
+                if (ModelState.IsValid)
                 {
-                    Description = project.Description,
-                    Title = project.Title,
-                    Status = project.Status,
-                    //TotalAmount=projectOptions.TotalAmount,
-                    ExpireDate = project.ExpireDate,
-                    Photo = project.Photo,
-                    StartDate = project.StartDate,
-                    Video = project.Video
-                });
-                    
-                    
-                    
-                 /*   _context.Add(project);
-                await _context.SaveChangesAsync();*/
-                return RedirectToAction(nameof(Index));
-            }
-            return View(project);
+
+                    Project temp_project = await _projectService.CreateProjectAsync(new ProjectOptions
+                    {
+                        Description = projectOptions.Description,
+                        Title = projectOptions.Title,
+                        Status = projectOptions.Status,
+                        TotalAmount = 0,
+                        ExpireDate = projectOptions.ExpireDate,
+                        //Photo = project.Photo, exoume ImageFile
+                        ImageFile = projectOptions.ImageFile,
+                        StartDate = DateTime.Now
+                        //Video = project.Video
+                    });
+
+                    /*   _context.Add(project);
+                   await _context.SaveChangesAsync();*/
+                    return RedirectToAction(nameof(Create), "Rewards", new { Id = temp_project.Id });
+                }
+          
+            return View(projectOptions);
         }
 
         // GET: Projects/Edit/5
@@ -83,7 +106,7 @@ namespace FundRaiser.Controllers
             {
                 return NotFound();
             }
-
+            //Console.WriteLine($"id in edit from project controller {id}");
             var project = await _projectService.EditProjectAsync(id.Value);
             if (project == null)
             {
@@ -114,14 +137,15 @@ namespace FundRaiser.Controllers
                     await _projectService.EditProjectByIdAsync(
                      new ProjectOptions
                     {
+                         Id=project.Id,
                         Description = project.Description,
                         Title = project.Title,
-                        Status = project.Status,
+                        //Status = project.Status,
                         //TotalAmount=projectOptions.TotalAmount,
                         ExpireDate = project.ExpireDate,
                         Photo = project.Photo,
-                        StartDate = project.StartDate,
-                        Video = project.Video
+                        //StartDate = project.StartDate,
+                        //Video = project.Video
                     });
 
                 }
@@ -136,7 +160,7 @@ namespace FundRaiser.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexCreator));
             }
             return View(project);
         }
@@ -165,13 +189,15 @@ namespace FundRaiser.Controllers
         {
             
             await _projectService.DeleteProjectByIdAsync(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexCreator));
         }
+        
+       
 
-       /* private bool ProjectExists(int id)
-        {
-            return _context.Project.Any(e => e.Id == id);
-        }*/
-    }
+            /* private bool ProjectExists(int id)
+             {
+                 return _context.Project.Any(e => e.Id == id);
+             }*/
+        }
 }
 

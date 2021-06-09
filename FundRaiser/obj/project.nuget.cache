@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IO9eybVwNdJ7BqdDfOKHY+oTxHY+xdYnE8h3pBCj9tYpwF8s6SLJ0y3fwVtIYcacsJie9H2pW+vMcmKMeWOI8A==",
+  "dgSpecHash": "qXhCbfUYBF8cpIHryfi0ZifE//LaNMR1NUYvC7tegQwltwgFUTiAFfvn2Dj2HxxCznW5eAwOmeD/K2zYdZLX2w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
+  "projectFilePath": "C:\\Users\\seita\\source\\repos\\FundRaiser\\FundRaiser\\FundRaiser.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\seita\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\seita\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",

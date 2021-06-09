@@ -21,5 +21,9 @@ namespace FundRaiser.Interfaces
         public bool RewardExists(int id);
 
         public Task<Reward> DeleteRewardByIdAsync(int id);
+        
+        public Task<Reward> UpdateRewardStatusByIdAsync(int id,int id2);
+
+
     }
 }

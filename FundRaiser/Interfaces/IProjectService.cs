@@ -1,5 +1,6 @@
 ﻿using FundRaiser.Models;
 using FundRaiser.Options;
+using FundRaiser.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace FundRaiser.Interfaces
         public Task<List<Project>> GetProjects();
 
 
-        public Task<Project> GetProjectByIdAsync(int id );
+        public Task<ProjectRewardsViewModel> GetProjectByIdAsync(int id );
 
         public Task<Project> CreateProjectAsync(ProjectOptions projectoptions);
 
@@ -22,6 +23,7 @@ namespace FundRaiser.Interfaces
 
         public bool ProjectExists(int id);
 
-        public Task<Project> DeleteProjectByIdAsync(int id); 
+        public Task<Project> DeleteProjectByIdAsync(int id);
+
     }
 }

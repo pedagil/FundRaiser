@@ -34,12 +34,14 @@ namespace FundRaiser.Services
 
         public async Task<Reward> CreateRewardAsync(RewardOptions rewardOptions)
         {
+            Console.WriteLine($"FROM REWARD SERVICE id in create from reward controller {rewardOptions.ProjectId}");
+            Project project = _context.Project.Find(rewardOptions.ProjectId);
             var newReward = new Reward
             {
                 Description = rewardOptions.Description,
                 Title = rewardOptions.Title,
                 RewardAmount = rewardOptions.RewardAmount,
-
+                Project = project
             };
             await _context.Reward.AddAsync(newReward);
             await _context.SaveChangesAsync();
@@ -79,6 +81,38 @@ namespace FundRaiser.Services
             _context.Reward.Remove(rewardToDelete);
             await _context.SaveChangesAsync();
             return null;
+        }
+        public async Task<Reward> UpdateRewardStatusByIdAsync( int id,int id2  )
+        {
+            Reward reward =  _context.Reward.Find(id);
+            Console.WriteLine($"********************** { id}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Description}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Id}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardAmount}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.Title}");
+            Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { reward.RewardStatus}");
+
+            Project project =  _context.Project.Find(id2);
+
+            //Console.WriteLine($"IDDDDDDDDD{ project}");
+            List<Reward> rewards =
+           _context.Reward.Where(r => r.Id == id).ToList();
+            rewards.ForEach(r => _context.Reward.Remove(r));
+
+            var updateReward = new Reward
+            {
+                Description = reward.Description,
+                Title = reward.Title,
+                RewardAmount = reward.RewardAmount,
+               // Id = id2,
+                RewardStatus = "purchased",
+                Project = project
+            };
+            Console.WriteLine($"PROJECTTTT { project.Id}");
+            //Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@ { rewardOptions.RewardAmount}");
+            _context.Reward.Update(updateReward);
+            await _context.SaveChangesAsync();
+            return updateReward;
         }
     }
 }
