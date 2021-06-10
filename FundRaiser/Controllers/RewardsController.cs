@@ -62,7 +62,7 @@ namespace FundRaiser.Controllers
                     //reward.Project.Id
                 });
                 //projectId = ProjectIdFromLink
-                return RedirectToAction(nameof(Index));
+                return View("../Home/Index");
             }
             return View(reward);
         }

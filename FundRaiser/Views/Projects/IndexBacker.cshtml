@@ -4,73 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index Backer</h1>
+<h1>Discover</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Photo)
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Video)
-                </th>*@
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Status)
-                </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.ExpireDate)
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </th>*@
-            @*<th>
-                    @Html.DisplayNameFor(model => model.TotalAmount)
-                </th>*@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Photo)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Video)
-                    </td>*@
-                @* <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExpireDate)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalAmount)
-                    </td>*@
-                <td>
-                    <a asp-action="DetailsBacker" asp-route-id="@item.Id">Details</a> 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="d-flex justify-content-around">
+    @foreach (var item in Model)
+    {
+        <div class="card " style="width: 25rem;">
+            <img class="card-img-top" src="@("~/Image/"+item.Photo)" asp-append-version="true" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h5>
+                <p class="card-text"> @Html.DisplayFor(modelItem => item.Description)</p>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary" asp-action="DetailsBacker" asp-route-id="@item.Id">Details</a>
+            </div>
+        </div>
+    }
+</div>

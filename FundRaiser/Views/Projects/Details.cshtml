@@ -4,82 +4,43 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Project</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.Photo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.Photo)
-        </dd>
-        <dt class="col-sm-2">
-            Uploaded Image
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@("~/Image/"+Model.Project.Photo)" asp-append-version="true" width="250px" height="250px" />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.Video)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.Video)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.Status)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.ExpireDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.ExpireDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.StartDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.StartDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Project.TotalAmount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Project.TotalAmount)
-        </dd>
-    </dl>
-    </div>
-
-<div>
-    @foreach (var item in Model.ListOfRewards)
-    {
-        <ul>
-            <li>
-                @Html.DisplayFor(modelItem => item.Title)
-                (@Html.DisplayFor(modelItem => item.RewardAmount)$)
-            </li>
+@*<h1>Details</h1>*@
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 50rem;">
+        <img class="card-img-top" src="@("~/Image/"+Model.Project.Photo)" asp-append-version="true" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">  @Html.DisplayFor(model => model.Project.Title)</h5>
+            <p class="card-text"> @Html.DisplayFor(model => model.Project.Description).</p>
+            <h3 class="card-text" style="color: #1b6ec2;">Pledged:  @Html.DisplayFor(model => model.TotalFundAmount)$</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in Model.ListOfRewards)
+            {
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-header" style="background-color: lightgrey">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> @Html.DisplayFor(modelItem => item.Description).</p>
+                            <h5 class="card-title">Price: @Html.DisplayFor(modelItem => item.RewardAmount)$</h5>
+                            @* <a href="#"  *@
+                            @*    class="btn btn-primary" *@
+                            @*    type="button" *@
+                            @*    asp-controller="Rewards" *@
+                            @*    asp-action="UpdateRewardStatus" *@
+                            @*    asp-route-id="@item.Id" *@
+                            @*    asp-route-id2="@Model.Project.Id" *@
+                            @*    >Fund</a> *@
+                        </div>
+                    </div>
+                </li>
+            }
         </ul>
-    }
+        <div class="card-body">
+            <a asp-action="Edit" asp-route-id="@Model.Project.Id">Edit</a> |
+            <a asp-action="IndexCreator" asp-controller="Projects">Back to List</a>
+        </div>
+    </div>
 </div>
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Project.Id">Edit</a> |
-    <a asp-action="IndexCreator" asp-controller="Projects">Back to List</a>
-</div>

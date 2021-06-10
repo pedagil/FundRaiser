@@ -4,39 +4,40 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+@*<h1>Details</h1>*@
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 50rem;">
+        <img class="card-img-top" src="@("~/Image/"+Model.Project.Photo)" asp-append-version="true" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">  @Html.DisplayFor(model => model.Project.Title)</h5>
+            <p class="card-text"> @Html.DisplayFor(model => model.Project.Description).</p>
+            <h3 class="card-title" style="color: #1b6ec2;">Pledged:  @Html.DisplayFor(model => model.TotalFundAmount)$</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in Model.ListOfRewards)
+            {
+                <li class="list-group-item">
+                    <div class="card">
+                        <div class="card-header" style="background-color: lightgrey">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> @Html.DisplayFor(modelItem => item.Description).</p>
+                            <h5 class="card-title">Price: @Html.DisplayFor(modelItem => item.RewardAmount)$</h5>
+                            <a class="btn btn-primary"
+                               type="button"
+                               asp-controller="Rewards"
+                               asp-action="UpdateRewardStatus"
+                               asp-route-id="@item.Id"
+                               asp-route-id2="@Model.Project.Id">Fund</a>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="card-body">
 
-<div class="card" style="width: 35rem;">
-    <img class="card-img-top" src="@("~/Image/"+Model.Project.Photo)" asp-append-version="true" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">  @Html.DisplayFor(model => model.Project.Title)</h5>      
-        <p class="card-text"> @Html.DisplayFor(model => model.Project.Description).</p>
-        <h6 class="card-text" style="color: #1b6ec2;">Funds:  @Html.DisplayFor(model => model.TotalFundAmount)$</h6>
+            <a asp-action="IndexBacker" asp-controller="Projects">Back to List</a>
+        </div>
     </div>
-    <ul class="list-group list-group-flush">
-        @foreach (var item in Model.ListOfRewards)
-        {
-            <li class="list-group-item">
-                <div class="card">
-                    <div class="card-header" style="background-color: lightgrey">
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text"> @Html.DisplayFor(modelItem => item.Description).</p>
-                        <h5 class="card-title">Price: @Html.DisplayFor(modelItem => item.RewardAmount)$</h5>
-                        <a class="btn btn-primary"
-                           type="button"
-                           asp-controller="Rewards"
-                           asp-action="UpdateRewardStatus"
-                           asp-route-id="@item.Id"
-                           asp-route-id2="@Model.Project.Id">Fund</a>
-                    </div>
-                </div>
-            </li>
-        }
-    </ul>
-    <div class="card-body">
-        <a asp-action="Edit" asp-route-id="@Model.Project.Id">Edit</a> |
-        <a asp-action="IndexBacker" asp-controller="Projects">Back to List</a>
     </div>
-</div>

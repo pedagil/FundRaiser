@@ -164,22 +164,22 @@ namespace FundRaiser.Controllers
         }
 
         // GET: Projects/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+                public async Task<IActionResult> Delete(int? id)
+                {
+                    if (id == null)
+                    {
+                        return NotFound();
+                    }
 
-            var project = await _projectService.GetProjectByIdAsync(id.Value);
-            if (project == null)
-            {
-                return NotFound();
-            }
+                    var project = await _projectService.GetProjectByIdAsync(id.Value);
+                    if (project == null)
+                    {
+                        return NotFound();
+                    }
 
-            return View(project);
-        }
-        
+                    return View(project);
+                }
+
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
