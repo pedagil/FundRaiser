@@ -1,9 +1,11 @@
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\FundRaiser.exe
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
+C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\48a8bdb21f4a3cbaa00ecd951a4f8fe0_original2107590622.png
+C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\48a8bdb21f4a3cbaa00ecd951a4f8fe0_original2113402823.png
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\92390a4b7540b4d9ac76f7d3a00cebf8_original2115194807.png
-C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\92390a4b7540b4d9ac76f7d3a00cebf8_original2139188093.png
-C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\de459243f5ecab0b98e8dcf4f3bf7173_original2102016943.png
+C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\background .png
+C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\de459243f5ecab0b98e8dcf4f3bf7173_original2119186927.png
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2106220583.jpg
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2128255325.jpg
 C:\Users\pedagil\source\repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2135337305.jpg

@@ -12,7 +12,7 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="RewardAmount" class="control-label"></label>
+                <label asp-for="RewardAmount" class="control-label">Reward Amount</label>
                 <input asp-for="RewardAmount" class="form-control" />
                 <span asp-validation-for="RewardAmount" class="text-danger"></span>
             </div>
@@ -27,17 +27,15 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="IndexCreator" asp-controller="Projects">Back to List</a>
 </div>
 
 @section Scripts {
