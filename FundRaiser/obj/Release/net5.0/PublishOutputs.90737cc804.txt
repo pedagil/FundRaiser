@@ -1,13 +1,20 @@
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\FundRaiser.exe
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\48a8bdb21f4a3cbaa00ecd951a4f8fe0_original2107590622.png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\48a8bdb21f4a3cbaa00ecd951a4f8fe0_original2113402823.png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\48a8bdb21f4a3cbaa00ecd951a4f8fe0_original2134425565.png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\48a8bdb21f4a3cbaa00ecd951a4f8fe0_original2148287555.png
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\92390a4b7540b4d9ac76f7d3a00cebf8_original2115194807.png
-C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\92390a4b7540b4d9ac76f7d3a00cebf8_original2139188093.png
-C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\de459243f5ecab0b98e8dcf4f3bf7173_original2102016943.png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\background .png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\background 2153075401.png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\de459243f5ecab0b98e8dcf4f3bf7173_original2119186927.png
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\de459243f5ecab0b98e8dcf4f3bf7173_original2142340521.png
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2106220583.jpg
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2128255325.jpg
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2135337305.jpg
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2139207459.jpg
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2145010925.jpg
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\hug-kiss-images2147428166.jpg
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\image2101381162.webp
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\image2118078778.webp
@@ -15,6 +22,7 @@ C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Ou
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\image2123090793.webp
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\image2132159439.webp
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\image2156068257.webp
+C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\Image\MicrosoftTeams-image (4)2152342338.png
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\pedagil\Source\Repos\FundRaiser\FundRaiser\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

@@ -76,7 +76,7 @@ namespace FundRaiser.Services
 
 
 
-            var newProject = new Project {                Description = projectOptions.Description,
+            var newProject = new Project {  Description = projectOptions.Description,
                                             Title=projectOptions.Title,
                                             Status=projectOptions.Status,
                                             TotalAmount=projectOptions.TotalAmount,
@@ -130,12 +130,15 @@ namespace FundRaiser.Services
             /*Rewards.ForEach(p => _context.Reward.Remove(p.ProjectId));
             _context.Reward.Except();*/
             var projectToDelete = await GetProjectByIdAsync(id);
-            
-            
-            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Project.Photo);
-            if (System.IO.File.Exists(imagePath))
-                System.IO.File.Delete(imagePath);
-
+            try
+            {
+                var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", projectToDelete.Project.Photo);
+                if (System.IO.File.Exists(imagePath))
+                    System.IO.File.Delete(imagePath);
+            }
+            catch {
+                Console.WriteLine("Image Error");
+            }
 
             _context.Project.Remove(projectToDelete.Project);
             await _context.SaveChangesAsync();
